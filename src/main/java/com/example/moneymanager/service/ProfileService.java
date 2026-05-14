@@ -45,7 +45,8 @@ public class ProfileService { //it includes methods for creating updating deleti
         profileDTO= toDTO(newProfile);
 
         //send activation mail
-        String activationLink = buildActivationLink(newProfile.getActivationToken());
+        //String activationLink = buildActivationLink(newProfile.getActivationToken());
+        String activationLink = activationUrl+"/api/v1.0/activate?token=" + newProfile.getActivationToken();
         log.info("Activation link generated for email={} token={} link={}",
                 newProfile.getEmail(), newProfile.getActivationToken(), activationLink);
         String subject="Activate your Money Manager Account jaldi jaldi...";
